@@ -45,9 +45,9 @@ python3 pacman.py --pacman ClassifierAgent
 ## How the Classifier Agent Works
 
 - **State Representation**: Each state represents a unique configuration of Pacman, the ghosts, and the grid.
-- **Rewards and Transitions**: The agent receives rewards based on actions (eating food, avoiding ghosts) and transitions between states according to game rules.
-- **Value Iteration**: The agent iteratively calculates the value of each state to find the optimal policy for maximum reward.
-- **Policy Execution**: After value iteration, the agent follows the policy to make decisions during gameplay.
+- **Feature-Based Rewards:**: The agent uses a weighted scoring system to adjust its focus on specific features such as food, ghosts, and visible threats. Rewards are assigned to incentivize beneficial actions (like eating food or avoiding ghosts) and guide Pacman towards favorable states.
+- **Nearest-Neighbor Classification**: Using the K-Nearest Neighbors (KNN) algorithm, the agent compares the current state to past states to determine the best action based on similar historical data. The distance to these neighbors (similar states) is calculated, with the agent choosing the action associated with the most frequent or closest neighbors.
+- **Policy Execution**: Once an optimal action is determined from the nearest neighbors, the agent executes this action within the game, continuously updating its behavior as it learns from new state transitions and outcomes.
 
 ## Future Improvements
 
