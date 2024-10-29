@@ -1,12 +1,12 @@
 # Classifier Agent For Pacman
 
-This project implements an **Classifier Agent** for Pacman, using value iteration through reinforcement learning to determine the optimal policy for Pacman's actions in the game grid.
+This project introduces a **K-Nearest Neighbors (KNN) Classifier Agent for Pacman**. Using supervised learning, this classifier agent selects the optimal actions for Pacman by analyzing rewards associated with similar game states. The KNN classifier utilizes customized feature weights to adjust its behavior dynamically based on the presence of ghosts, food, walls, and visibility in the Pacman grid environment.
 
 ## Features
 
-- **Classifier Agent**: The agent models Pacman's world as a grid of states with rewards and transitions.
-- **Value Iteration**: Uses value iteration to compute the optimal policy for each state, maximizing rewards over time.
-- **Gridworld Support**: The agent can be run on various grid layouts.
+- **KNN-Based Decision Making**: The agent uses KNN to predict Pacman’s next action based on similarities to past states.
+- **Feature Weight Adjustments**:  Weighted parameters for ghosts, visible ghosts, food, and walls allow customization of the classifier’s responsiveness to different environmental features.
+- **Dynamic k Selection**: The agent determines the optimal k value to improve prediction accuracy.
 - **Pacman Simulation**: This agent is compatible with the Pacman simulation environment and can be used with various layouts and configurations of the game.
 
   
@@ -14,6 +14,13 @@ This project implements an **Classifier Agent** for Pacman, using value iteratio
 
 - **Python 3** (or Python 3.x if applicable)
 - **Pacman AI Project**: Make sure you have the full Pacman project environment.
+- **NumPy**: For array operations and distance calculations
+- **scikit-learn**: For train_test_split and KNN modeling
+
+Install Dependencies With:
+```bash
+pip install numpy scikit-learn
+```
   
 ## Running the Agent
 
@@ -35,7 +42,7 @@ python3 pacman.py --pacman ClassifierAgent
 - `ClassifierAgent`: Use the Classifier-based agent for decision-making.
 - `--pacman`: Instructs pacman.py to search for and execute the specified agent (ClassifierAgent in this case) during gameplay.
 
-## How the MDPAgent Works
+## How the Classifier Agent Works
 
 - **State Representation**: Each state represents a unique configuration of Pacman, the ghosts, and the grid.
 - **Rewards and Transitions**: The agent receives rewards based on actions (eating food, avoiding ghosts) and transitions between states according to game rules.
@@ -45,8 +52,8 @@ python3 pacman.py --pacman ClassifierAgent
 ## Future Improvements
 
 - **Ghost Avoidance**: Implement improved ghost prediction strategies for better ghost evasion.
-- **Encourage Ghost Chase During Capsule Power Up**: When a power-up capsule is consumed, the agent should be encouraged to chase and eat ghosts.
-- **Reward Tuning**: Adjust the reward values for specific events (e.g., eating food or avoiding ghosts) to improve agent behavior.
+- **Dynamic Feature Weighting**: Allow weights to adapt in real-time based on gameplay feedback.
+- **Additional Algorithms**: Implement other supervised learning algorithms, like decision trees or SVM, for comparison.
 
 ## License
 This project is licensed for educational purposes under the following conditions:
